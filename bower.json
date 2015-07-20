@@ -1,0 +1,23 @@
+{
+  "name": "markup",
+  "version": "1.0.0",
+  "authors": [
+    "Innocent Amadi <innocent.amadi@gmail.com"
+  ],
+  "description": "An app for Improv attendance",
+  "main": "app.module.js",
+  "keywords": [
+    "slackbot",
+    "apis",
+    "improv",
+    "attendance"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

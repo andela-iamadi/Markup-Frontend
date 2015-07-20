@@ -1,0 +1,40 @@
+<div class="toolbar">
+
+		<div class="combo-pos" flex-container="row" flex-gutter="24" ng-init="fezge = false">
+			<div flex-item>
+					<lx-select ng-model="sessions.selectedSession" placeholder="Select a session" choices="sessions.allSessions" error="fezge" floating-label>
+							<lx-select-selected>
+									{{ $selected.name + ' (' + ($selected.start_time | date:'hh:mm') + ' - ' + ($selected.end_time | date:'hh:mm') + ')'}}
+							</lx-select-selected>
+
+							<lx-select-choices>
+									{{ $choice.name }}
+							</lx-select-choices>
+					</lx-select>
+			</div>
+
+		</div>
+
+		<span class="toolbar__label fs-title" style="text-align: center;"><span class="session-theme">Theme:</span> {{ days.selectedDay.theme }}</span>
+
+		<div class="toolbar__right">
+				<lx-date-picker model="datepicker.date" ng-model="datepicker.date" label="Pick a date" locale="en" fixed-label="true" icon="calendar"></lx-date-picker>
+				<lx-search-filter closed theme="light"></lx-search-filter>
+
+				<lx-dropdown position="right" from-top>
+						<button class="btn btn--l btn--black btn--icon" lx-ripple lx-dropdown-toggle>
+								<i class="mdi mdi-dots-vertical"></i>
+						</button>
+
+						<lx-dropdown-menu>
+								<ul>
+										<li><a class="dropdown-link">My profile</a></li>
+										<li><a class="dropdown-link">Ashton - Log out</a></li>
+										<li class="dropdown-divider"></li>
+										<li><a class="dropdown-link dropdown-link--is-header">A problem?</a></li>
+										<li><a class="dropdown-link">Report a bug</a></li>
+								</ul>
+						</lx-dropdown-menu>
+				</lx-dropdown>
+		</div>
+</div><!-- end of toolbar -->

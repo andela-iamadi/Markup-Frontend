@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang=en ng-app="mainApp">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="css/style.css" rel="stylesheet" />
+
+		<!--Head-->
+		<link rel="stylesheet" href="bower_components/lumx/dist/lumx.css">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+	</head>
+
+	<body  ng-controller="homeController">
+		<header class="header">
+			<div class="sidebar large-view">
+				<h3>
+					<i class="mdi mdi-calendar"></i>
+					<span>Mark Up</span>
+				</h3>
+			</div>
+
+			<div class="tool-bar large-view">
+			  <main-toolbar sessions="sessions" days="days" datepicker="datepicker"></main-toolbar>
+			</div><!-- end of tool-bar-->
+
+
+		</header>
+
+
+		<content >
+				<div class="sidebar">
+					<ul class="notes-thumb">
+						<li class="note-thumb {{item.status}}" ng-repeat="item in sidebarMenu"><i class="mdi mdi-{{item.icon}}"></i>   {{ item.text }}</li>
+					</ul>
+				</div>
+
+				<div class="content-background">
+					<div class="container" ng-repeat="fellow in attendance.allAttendances">
+						<current-list-directive fellow="fellow"></current-list-directive>
+					</div>
+				</div><!-- content-background -->
+			</div>
+		</content>
+
+		<footer>
+			<div class="add-note sidebar">
+			</div>
+			<div class="status-bar">
+				<div class="sync-button"><i class="fa fa-gear"></i></div>
+				<div class="sync-text">Sync is in progress</div>
+			</div>
+		</footer>
+
+		<script src="bower_components/jquery/dist/jquery.js"></script>
+		<script src="bower_components/velocity/velocity.js"></script>
+		<script src="bower_components/moment/min/moment-with-locales.js"></script>
+		<script src="bower_components/angular/angular.js"></script>
+		<script src="bower_components/lumx/dist/lumx.js"></script>
+
+		<!--Modules-->
+		<script src="app/app.module.js"></script>
+
+		<!-- Services -->
+		<script src="app/components/home/sessionsService.js"></script>
+		<script src="app/components/home/daysService.js"></script>
+		<script src="app/components/home/attendanceService.js"></script>
+
+		<!--Controllers -->
+		<script src="app/components/home/homeController.js"></script>
+
+		<!-- Directives -->
+		<script src="app/shared/home/mainToolbar.js"></script>
+		<script src="app/shared/home/currentListDirective.js"></script>
+
+		<!-- Other js files -->
+		<script src="js/tabs.js"></script>
+	</body>
+</html>
